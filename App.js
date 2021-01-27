@@ -7,11 +7,13 @@ import { renderIf } from "./utilities/CommonMethods";
 import Styles from "./Styles";
 import { customAlert } from "./utilities/CommonMethods";
 import CheckBox from 'react-native-check-box'
+
 /**
  * @author Wah M
  * @description This is the first screen that loads when the app starts. This screen shows the list of movies
  * according to the search query.
  */
+
 class MainScreen extends Component {
   static navigationOptions = {
     headerTitle: Constants.Strings.MAIN_TITLE
@@ -56,9 +58,9 @@ class MainScreen extends Component {
       this.setState({ movieList: [], noData: true });
     }
   };
+
   setWatchUnWatched = (value) => {
     if (value === 0) {
-
       this.setState({
         Watched: true,
         unWatched: false,
@@ -68,16 +70,10 @@ class MainScreen extends Component {
         Watched: false,
         unWatched: true,
       })
-
-
-
     }
-
-
-
   }
-  watchMovieList = (val) => {
 
+  watchMovieList = (val) => {
     let array = [ ...this.state.watchMovieList ]
 
     let Watched = array?.concat(val)
@@ -85,16 +81,8 @@ class MainScreen extends Component {
       watchMovieList: Watched,
       isChecked: !this.state.isChecked
     })
-
   }
 
-
-
-  // setValue = (val) => {
-
-  //   Alert.alert(val)
-
-  // }
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -104,7 +92,6 @@ class MainScreen extends Component {
           <View style={Styles.cardView}>
             <View style={{ margin: 10, flexDirection: 'row' }}>
               <View style={{ margin: 10, flexDirection: 'row', borderRadius: 1, borderWidth: 1, borderRadius: 4 }}>
-
                 <Image source={{ uri: 'https://cdn2.iconfinder.com/data/icons/font-awesome/1792/search-512.png' }}
                   style={{ padding: 10, width: 20, height: 20, alignSelf: 'center' }} />
                 <TextInput
@@ -117,11 +104,8 @@ class MainScreen extends Component {
               <TouchableOpacity onPress={() => this.searchButtonPressed()} style={Styles.buttonContainer}>
                 <Text style={Styles.buttonText}>{'+'}</Text>
               </TouchableOpacity>
-
             </View>
             <View style={{ margin: 10, flexDirection: 'row', borderRadius: 1, borderWidth: 1, borderRadius: 4 }}>
-
-
               <TextInput
                 placeholder={'SearchMyMovies'}
                 style={{ borderRadius: 1, height: 40, padding: 10 }}
@@ -130,11 +114,8 @@ class MainScreen extends Component {
               />
             </View>
             <View style={{ alignItems: "center", flexDirection: 'row' }}>
-
               <View style={{ alignItems: "center", padding: 10 }}>
-
                 <TouchableOpacity onPress={() => this.setWatchUnWatched(0)}>
-
                   <Image source={{ uri: 'https://freeiconshop.com/wp-content/uploads/edd/eye-outline.png' }}
                     style={this.state.Watched ? Styles.imageSelected : Styles.imageUnselected} />
 
@@ -143,13 +124,11 @@ class MainScreen extends Component {
               </View>
               <View style={{ alignItems: "center", padding: 10 }}>
                 <TouchableOpacity onPress={() => this.setWatchUnWatched(1)}>
-
                   <Image source={{ uri: 'https://freeiconshop.com/wp-content/uploads/edd/eye-outline.png' }}
                     style={this.state.unWatched ? Styles.imageSelected : Styles.imageUnselected} />
                   <Text style={this.state.unWatched ? Styles.selectedText : Styles.unselectedText} >Un-Watched</Text>
                 </TouchableOpacity>
               </View>
-
             </View>
           </View>
         </View>
@@ -255,9 +234,7 @@ class MainScreen extends Component {
               }, this)}
             </View>
           </ScrollView>
-
         }
-
       </View>
     );
   }
